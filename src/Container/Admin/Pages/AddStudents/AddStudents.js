@@ -7,7 +7,8 @@ import { getCourses } from "../../../../services/courses"
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { AiFillPlusCircle } from 'react-icons/ai';
 import HomeIcon from "@mui/icons-material/Home";
-import {successNotify } from "../../../../lib/toast";
+import {successNotify, errorNotify } from "../../../../lib/toast";
+import firebase from "../../../../config/firebase";
 
 const AddStudents = () => {
     const [rewardPoint, setRewardPoint] = useState(0)
@@ -114,21 +115,42 @@ const AddStudents = () => {
         console.log(semWiseCourses)
 
         setLoader(true)
-        addStudent({
-            name: formInput.name,
-            email: formInput.email,
-            rollNo: formInput.rollNo,
-            batch: formInput.batch,
-            department: formInput.department,
-            rewardPoints: rewardPoint,
-            CGPA: formInput.CGPA,
-            courses: semWiseCourses,
-            softSkill: [],
-            technicalSkill: [],
-            location: formInput.location
+
+        firebase.auth().createUserWithEmailAndPassword(formInput.email, "123456")
+        .then((userCredential) => {
+            const user = userCredential.user;
+            const id = user.uid
+            firebase.firestore().collection("students").doc(id).set({
+                name: formInput.name,
+                email: formInput.email,
+                rollNo: formInput.rollNo,
+                batch: formInput.batch,
+                department: formInput.department,
+                rewardPoints: rewardPoint,
+                CGPA: formInput.CGPA,
+                courses: semWiseCourses,
+                softSkill: [],
+                technicalSkill: [],
+                location: formInput.location
+            })
+                .then((docRef) => {
+                    // window.location.reload();
+                    successNotify('Student added successfully');
+                    setLoader(false)
+
+                })
+                .catch((error) => {
+                    errorNotify(error)
+                    setLoader(false)
+
+                });
+        })
+        .catch((error) => {
+            errorNotify(error.message)
+            setLoader(false)
+
         });
 
-        setLoader(false)
     }
 
     return (
