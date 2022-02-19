@@ -1,0 +1,8 @@
+.modal_header{
+    justify-content: end;
+}
+
+.modal_header svg {
+    cursor: pointer;
+    font-size: 20px;
+}

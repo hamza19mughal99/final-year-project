@@ -1,0 +1,106 @@
+.nav-link{
+    text-align: center;
+    border: none;
+    border: 2px solid #3895d3;
+    background-color: #3895d3;
+    color: #fff !important;
+    padding: 8px 30px !important;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+.footer1{
+    width: 100%;
+    background-color: #54595F;
+    padding: 60px 0;
+}
+
+.footer1-innerdiv{
+    justify-content: space-around;
+    flex-direction: row;
+    display: flex;
+  
+}
+.footer1-content{
+   border-radius: 5px;
+    margin-left: 20px;
+    padding: 15px;
+    color: white;
+}
+
+.footer1-content h4{
+    margin-bottom: 35px;
+}
+
+
+.footer2{
+    width: 100%;
+    background-color: rgb(47, 45, 45);
+    color: #fff;
+}
+
+.footer_text p{
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-link{
+    margin-right: 20px;
+}
+
+.footer1-h6{
+    cursor: pointer;
+}
+
+.thirdSection{
+    background-image: url("../../assets/slide1.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.main_section{
+    padding: 40px 0;
+}
+
+.main_section_text p{
+    color: #7a7a7a;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.main_section_text h5{
+    color: #43403e;
+    font-size: 30px;
+}
+
+.main_section_text button{
+    font-family: roboto,Sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    fill: #fff;
+    color: #fff;
+    background-color: #3895d3;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #3895d3;
+    border-radius: 25px 25px 25px 25px;
+    padding: 15px 40px;
+
+}

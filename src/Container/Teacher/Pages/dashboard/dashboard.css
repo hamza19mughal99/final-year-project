@@ -1,0 +1,13 @@
+
+.MuiCardContent-root .MuiTypography-root {
+  text-decoration: none;
+  color: black;
+}
+
+.css-7eulig-MuiPaper-root-MuiCard-root {
+  border-radius: 22px !important;
+}
+
+.react-calendar  {
+  width: 100% !important;
+}

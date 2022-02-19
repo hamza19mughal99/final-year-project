@@ -1,0 +1,48 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.graph {
+  width: 100%;
+  border-radius: 10px;
+  height: 100% !important;
+}
+
+.graph .graphHeight {
+  height: 100% !important;
+}
+
+@media only screen and (max-width: 1000px ) and (min-width:768px ) {
+  .title {
+    font-size: 11px !important;
+  }
+
+  .center {
+    height: 100%;
+    width: 70%;
+  }
+
+  .graph {
+    margin-top: 30px;
+    height: 100% !important;
+  }
+
+
+}
+
+
+@media only screen and (max-width: 767px ) and (min-width: 400px) {
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .center {
+    width: 70%;
+  }
+}

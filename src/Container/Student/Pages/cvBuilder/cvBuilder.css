@@ -1,0 +1,17 @@
+.cv_left {
+    background-color: rgb(17, 14, 14);
+    color: rgb(240, 235, 235);
+    padding: 20px;
+    height: 100%;
+    padding-top: 90px;
+}
+
+.cv_right {
+    background-color: rgb(17, 14, 14);
+    padding: 20px;
+    color: #fff;
+}
+
+.objective{
+    padding: 20px;
+}
