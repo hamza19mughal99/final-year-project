@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import 'react-tabs/style/react-tabs.css';
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { getEvents } from "../../../../services/events";
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
@@ -19,7 +19,7 @@ const UpComingEvents = props => {
     const getEventTable = (Events) => {
         let showEvents = (
             <div className={'text-center'}>
-                <Spinner animation="border"/>
+                <Spinner animation="border" />
             </div>
         )
 
@@ -29,29 +29,31 @@ const UpComingEvents = props => {
 
         if (Events && Events.length > 0) {
             showEvents = (
-                <Table>
-                    <TableHead>
-                        <TableRow hover>
-                            {
-                                columns.map((col, index) => (
-                                    <TableCell key={index} style={{fontWeight: "bolder"}}>{col}</TableCell>
-                                ))
-                            }
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <Fragment>
-                            {Events.map(event => (
-                                <TableRow>
-                                    <TableCell> {event.eventName} </TableCell>
-                                    <TableCell> {event.eventDate} </TableCell>
-                                    <TableCell> {event.eventTime} </TableCell>
-                                    <TableCell> {event.location} </TableCell>
-                                </TableRow>
-                            ))}
-                        </Fragment>
-                    </TableBody>
-                </Table>
+                <div className='table-responsive'>
+                    <Table>
+                        <TableHead>
+                            <TableRow hover>
+                                {
+                                    columns.map((col, index) => (
+                                        <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
+                                    ))
+                                }
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <Fragment>
+                                {Events.map(event => (
+                                    <TableRow>
+                                        <TableCell> {event.eventDetails.eventName} </TableCell>
+                                        <TableCell> {event.eventDetails.eventDate} </TableCell>
+                                        <TableCell> {event.eventDetails.eventTime} </TableCell>
+                                        <TableCell> {event.eventDetails.location} </TableCell>
+                                    </TableRow>
+                                ))}
+                            </Fragment>
+                        </TableBody>
+                    </Table>
+                </div>
             )
         }
         return showEvents;
@@ -59,14 +61,14 @@ const UpComingEvents = props => {
 
     return (
         <div className="page_responsive">
-<div>
-               <Breadcrumb>
-						<Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-						<Breadcrumb.Item active className="d-flex justify-content-start">
-                              Upcoming Events
-						</Breadcrumb.Item>
-					</Breadcrumb>
-				</div>
+            <div>
+                <Breadcrumb>
+                    <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item active className="d-flex justify-content-start">
+                        Upcoming Events
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+            </div>
 
             <div>
                 {

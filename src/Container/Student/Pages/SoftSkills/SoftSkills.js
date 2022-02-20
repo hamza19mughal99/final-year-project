@@ -77,6 +77,7 @@ const SoftSkills = () => {
 
     if(student.softSkill && student.softSkill.length > 0){
        studentSoftSkill = (
+           <div className='table-responsive'>
            <Table>
                <TableHead>
                    <TableRow hover>
@@ -105,6 +106,7 @@ const SoftSkills = () => {
                    </Fragment>
                </TableBody>
            </Table>
+           </div>
        )
     }
 

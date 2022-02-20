@@ -107,7 +107,7 @@ const AddStudents = () => {
                 perSemGPA
             }
         })
-        successNotify('semester added successfully');
+        successNotify(`${courseLabel} semester added successfully`);
     }
 
     const handleSubmit = async (event) => {
@@ -134,8 +134,8 @@ const AddStudents = () => {
                 location: formInput.location
             })
                 .then((docRef) => {
-                    // window.location.reload();
                     successNotify('Student added successfully');
+                    window.location.reload();
                     setLoader(false)
 
                 })
@@ -152,6 +152,8 @@ const AddStudents = () => {
         });
 
     }
+
+    console.log(semWiseCourses)
 
     return (
         <div className='page_responsive'>

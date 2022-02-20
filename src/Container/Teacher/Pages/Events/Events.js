@@ -201,7 +201,7 @@ const Events = () => {
                                                 <TableCell> {event.eventDetails.eventDate} </TableCell>
                                                 <TableCell> {event.eventDetails.eventTime} </TableCell>
                                                 <TableCell> {event.eventDetails.location} </TableCell>
-                                                <TableCell> <button className={' w-50 btn-send'} onClick={() => deleteHandler(event.id)}> Delete </button> </TableCell>
+                                                <TableCell> <button className={'btn-send'} onClick={() => deleteHandler(event.id)}> Delete </button> </TableCell>
                                             </TableRow>
                                             )
                                         })
@@ -230,20 +230,20 @@ const Events = () => {
                         onClick={ModalOpenHandler}> CREATE EVENT </button>
                 <hr />
                 <form onSubmit={LocationHandler}>
-                    <div className={'d-flex mb-3'}>
+                    <div className={'search_div mb-3'}>
                         <input
                             type="text"
-                            className="form-control w-75"
+                            className="form-control"
                             name='eventName'
                             onChange={eventLocationHandler}
                             placeholder={'Search By Event Name'}
                         />
-                        <button type="submit" className={' w-25 btn btn-send'}>
+                        <button type="submit" className={'btn btn-send'}>
                             Search
                         </button>
                     </div>
                 </form>
-                <div className="text-center">
+                <div className="text-center table-responsive">
                     {
                         getEventTable(events)
                     }

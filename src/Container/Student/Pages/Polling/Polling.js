@@ -91,6 +91,7 @@ const Polling = () => {
 
     if (pollingData && pollingData.length > 0) {
         pollingTable = (
+            <div className='table-responsive'>
             <Table>
                 <TableHead>
                     <TableRow hover>
@@ -109,7 +110,7 @@ const Polling = () => {
                                     <TableCell> {polling.pollingData.event} </TableCell>
                                     <TableCell> {polling.pollingData.points} </TableCell>
                                     <TableCell>
-                                        <button className={'w-50 text-center btn btn-send btn-block'}
+                                        <button className={'text-center btn btn-send btn-block'}
                                             onClick={() => VoteModalHandler(polling.pollingData.participants, polling.id)} style={{ backgroundColor: "#3b4968", color: "white" }}> Give Vote </button>
                                     </TableCell>
                                 </TableRow>
@@ -118,6 +119,7 @@ const Polling = () => {
                     </Fragment>
                 </TableBody>
             </Table>
+            </div>
         );
     }
 

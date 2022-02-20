@@ -108,15 +108,15 @@ const Teachers = () => {
                 </Breadcrumb>
             </div>
             <form onSubmit={LocationHandler}>
-                <div className={'d-flex'}>
+                <div className={'search_div'}>
                     <input
                         type="text"
-                        className="form-control w-75"
+                        className="form-control"
                         name='id'
                         onChange={teacherLocationHandler}
                         placeholder={'Search By ID'}
                     />
-                    <button type="submit" className={' w-25 btn btn-send'}>
+                    <button type="submit" className={'btn btn-send'}>
                         Search
                     </button>
                 </div>
@@ -126,7 +126,7 @@ const Teachers = () => {
                     <Tab>All Teachers</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="text-center">
+                    <div className="text-center table-responsive">
                         {
                             getTeacherTable(AllTeachers)
                         }
