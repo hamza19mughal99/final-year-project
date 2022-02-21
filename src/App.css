@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background-color: #F5F7F9!important;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #f5f7f9 !important;
+  font-family: "Montserrat", sans-serif;
 }
 
-.btn-send{
+.btn-send {
   text-align: center;
   border: none;
   width: 100%;
@@ -24,29 +24,29 @@ body {
 }
 
 .active ~ .page_responsive {
-    width: calc(100% - 240px);
-    left: 240px;
-    transition: all 0.2s ease;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.2s ease;
 }
 
 .page_responsive {
-    position: absolute;
-    top: 16px;
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-top: 3%;
-    height: 100%;
-    width: calc(100% - 74px);
-    left: 74px;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 16px;
+  padding-left: 7%;
+  padding-right: 7%;
+  padding-top: 3%;
+  height: 100%;
+  width: calc(100% - 74px);
+  left: 53px;
+  transition: all 0.2s ease;
 }
 @media (max-width: 767px) {
-    .active ~ .page_responsive {
-        width: calc(100% - 240px);
-        left: 240px;
-        transition: all 0.2s ease;
-        filter: blur(12px);
-    }
+  .active ~ .page_responsive {
+    width: calc(100% - 240px);
+    left: 240px;
+    transition: all 0.2s ease;
+    filter: blur(12px);
+  }
 }
 
 .App {
@@ -62,7 +62,7 @@ body {
     font-size: 12px;
   }
   h2 {
-    font-size: 12px
+    font-size: 12px;
   }
   h3 {
     font-size: 12px;

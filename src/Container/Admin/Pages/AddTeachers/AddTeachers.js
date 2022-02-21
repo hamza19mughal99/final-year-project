@@ -105,6 +105,7 @@ const AddTeachers = () => {
                             name='name'
                             value={formInput.name}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6'>
@@ -117,6 +118,7 @@ const AddTeachers = () => {
                             name='email'
                             value={formInput.email}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6'>
@@ -129,6 +131,7 @@ const AddTeachers = () => {
                             name='id'
                             value={formInput.id}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6'>
@@ -141,6 +144,7 @@ const AddTeachers = () => {
                             name='department'
                             value={formInput.department}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6'>
@@ -153,6 +157,7 @@ const AddTeachers = () => {
                             name='yearJoin'
                             value={formInput.yearJoin}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6'>

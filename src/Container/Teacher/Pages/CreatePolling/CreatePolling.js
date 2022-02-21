@@ -64,12 +64,7 @@ const CreatePolling = () => {
                                     {
                                         viewResult[value.label] ?
                                             <div className={'polling_result'}>
-                                                <h5> <span> {value.label} </span> has <span> {viewResult[value.label]} </span> votes up till Now.  <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
-                                                    onClick={() => { givePoints() }}
-                                                    style={{ backgroundColor: "#3b4968", color: "white", maxWidth: "140px", maxHeight: "40px", display: 'inline' }}>
-                                                    Give Points
-                                                </button></h5>
-
+                                                <h5> <span> {value.label} </span> has <span> {viewResult[value.label]} </span> votes up till Now. </h5>
 
                                             </div>
                                             : null

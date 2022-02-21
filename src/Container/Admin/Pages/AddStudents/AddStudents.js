@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { addStudent } from '../../../../services/student'
+// import { addStudent } from '../../../../services/student'
 import { MultiSelect } from "react-multi-select-component";
 import Select from 'react-select'
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { getCourses } from "../../../../services/courses"
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { AiFillPlusCircle } from 'react-icons/ai';
 import HomeIcon from "@mui/icons-material/Home";
-import {successNotify, errorNotify } from "../../../../lib/toast";
+import { successNotify, errorNotify } from "../../../../lib/toast";
 import firebase from "../../../../config/firebase";
 
 const AddStudents = () => {
@@ -52,14 +52,14 @@ const AddStudents = () => {
     })
 
     const semesterOptions = [
-        {label: 'first', value: 'first'},
-        {label: 'second', value: 'second'},
-        {label: 'third', value: 'third'},
-        {label: 'fourth', value: 'fourth'},
-        {label: 'fifth', value: 'fifth'},
-        {label: 'sixth', value: 'sixth'},
-        {label: 'seventh', value: 'seventh'},
-        {label: 'eight', value: 'eight'},
+        { label: 'first', value: 'first' },
+        { label: 'second', value: 'second' },
+        { label: 'third', value: 'third' },
+        { label: 'fourth', value: 'fourth' },
+        { label: 'fifth', value: 'fifth' },
+        { label: 'sixth', value: 'sixth' },
+        { label: 'seventh', value: 'seventh' },
+        { label: 'eight', value: 'eight' },
     ]
 
     const changeHandler = (e) => {
@@ -71,25 +71,25 @@ const AddStudents = () => {
     }
 
     useEffect(() => {
-        if(formInput.CGPA === 0) {
+        if (formInput.CGPA === 0) {
             setRewardPoint(0)
         }
-        if(formInput.CGPA > 0 && formInput.CGPA <= 1){
+        if (formInput.CGPA > 0 && formInput.CGPA <= 1) {
             setRewardPoint(0)
         }
-        else if(formInput.CGPA > 1 && formInput.CGPA <= 2){
+        else if (formInput.CGPA > 1 && formInput.CGPA <= 2) {
             setRewardPoint(5)
         }
-        else if(formInput.CGPA > 2 && formInput.CGPA <= 2.5){
+        else if (formInput.CGPA > 2 && formInput.CGPA <= 2.5) {
             setRewardPoint(10)
         }
-        else if(formInput.CGPA > 2.5 && formInput.CGPA <= 3){
+        else if (formInput.CGPA > 2.5 && formInput.CGPA <= 3) {
             setRewardPoint(15)
         }
-        else if(formInput.CGPA > 3 && formInput.CGPA <= 3.5){
+        else if (formInput.CGPA > 3 && formInput.CGPA <= 3.5) {
             setRewardPoint(20)
         }
-        else if(formInput.CGPA > 3.5 && formInput.CGPA <= 4){
+        else if (formInput.CGPA > 3.5 && formInput.CGPA <= 4) {
             setRewardPoint(30)
         }
     }, [formInput.CGPA])
@@ -117,39 +117,39 @@ const AddStudents = () => {
         setLoader(true)
 
         firebase.auth().createUserWithEmailAndPassword(formInput.email, "123456")
-        .then((userCredential) => {
-            const user = userCredential.user;
-            const id = user.uid
-            firebase.firestore().collection("students").doc(id).set({
-                name: formInput.name,
-                email: formInput.email,
-                rollNo: formInput.rollNo,
-                batch: formInput.batch,
-                department: formInput.department,
-                rewardPoints: rewardPoint,
-                CGPA: formInput.CGPA,
-                courses: semWiseCourses,
-                softSkill: [],
-                technicalSkill: [],
-                location: formInput.location
-            })
-                .then((docRef) => {
-                    successNotify('Student added successfully');
-                    window.location.reload();
-                    setLoader(false)
-
+            .then((userCredential) => {
+                const user = userCredential.user;
+                const id = user.uid
+                firebase.firestore().collection("students").doc(id).set({
+                    name: formInput.name,
+                    email: formInput.email,
+                    rollNo: formInput.rollNo,
+                    batch: formInput.batch,
+                    department: formInput.department,
+                    rewardPoints: rewardPoint,
+                    CGPA: formInput.CGPA,
+                    courses: semWiseCourses,
+                    softSkill: [],
+                    technicalSkill: [],
+                    location: formInput.location
                 })
-                .catch((error) => {
-                    errorNotify(error)
-                    setLoader(false)
+                    .then((docRef) => {
+                        successNotify('Student added successfully');
+                        window.location.reload();
+                        setLoader(false)
 
-                });
-        })
-        .catch((error) => {
-            errorNotify(error.message)
-            setLoader(false)
+                    })
+                    .catch((error) => {
+                        errorNotify(error)
+                        setLoader(false)
 
-        });
+                    });
+            })
+            .catch((error) => {
+                errorNotify(error.message)
+                setLoader(false)
+
+            });
 
     }
 
@@ -176,6 +176,7 @@ const AddStudents = () => {
                             name='name'
                             value={formInput.name}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6 mb-2'>
@@ -188,6 +189,7 @@ const AddStudents = () => {
                             name='email'
                             value={formInput.email}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6 mb-2'>
@@ -200,6 +202,7 @@ const AddStudents = () => {
                             name='rollNo'
                             value={formInput.rollNo}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
                     <div className='col-md-6 mb-2'>
@@ -212,9 +215,10 @@ const AddStudents = () => {
                             name='batch'
                             value={formInput.batch}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
-                    <div className='col-md-6 mb-2'>
+                    <div className='col-md-12 mb-2'>
                         <label htmlFor="exampleInputEmail1" className="form-label">
                             Department
                         </label>
@@ -224,9 +228,10 @@ const AddStudents = () => {
                             name='department'
                             value={formInput.department}
                             onChange={changeHandler}
+                            required
                         />
                     </div>
-                    <div className='col-md-6 mb-2'>
+                    {/* <div className='col-md-6 mb-2'>
                         <label htmlFor="exampleInputEmail1" className="form-label">
                             CGPA
                         </label>
@@ -237,7 +242,7 @@ const AddStudents = () => {
                             value={formInput.CGPA}
                             onChange={changeHandler}
                         />
-                    </div>
+                    </div> */}
                     <div className='col-md-4 mb-2'>
                         <label form="Select">Semester</label>
                         <Select
@@ -265,10 +270,11 @@ const AddStudents = () => {
                             className="form-control"
                             name='GPA'
                             onChange={changeGPAHandler}
+                            required
                         />
                     </div>
                     <div className={'col-md-1 d-flex justify-content-center align-items-center mb-2'}>
-                        <AiFillPlusCircle style={{fontSize: '40px', color: "#3895D3", cursor: "pointer"}} onClick={addSemWiseHandler}/>
+                        <AiFillPlusCircle style={{ fontSize: '40px', color: "#3895D3", cursor: "pointer" }} onClick={addSemWiseHandler} />
                     </div>
                 </div>
                 {

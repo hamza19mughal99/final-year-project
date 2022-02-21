@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Chart from 'react-apexcharts'
-import {Spinner} from "react-bootstrap"
+import { Spinner } from "react-bootstrap"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import { TableCell, TableRow } from "@material-ui/core";
 import HomeIcon from '@mui/icons-material/Home';
@@ -50,7 +50,7 @@ export default function StudentDashboard() {
     const series = [
         {
             name: 'semester',
-            data: [firstGpa,secondGpa,thirdGpa,fourthGpa,fifthGpa,sixthGpa,seventhGpa,eightGpa]
+            data: [firstGpa, secondGpa, thirdGpa, fourthGpa, fifthGpa, sixthGpa, seventhGpa, eightGpa]
         }
     ]
 
@@ -77,22 +77,23 @@ export default function StudentDashboard() {
             setSixthGpa(res.data().courses.sixth.perSemGPA)
             setSeventhGpa(res.data().courses.seventh.perSemGPA)
             setEightGpa(res.data().courses.eight.perSemGPA)
-            setCurrProgress((res.data().courses.seventh.perSemGPA * 100) /4 )
+            setCurrProgress((res.data().courses.eight.perSemGPA * 100) / 4)
+
             setAllProgress(
                 (
                     (
-                parseInt(res.data().courses.first.perSemGPA) +
-                parseInt(res.data().courses.second.perSemGPA) +
-                parseInt(res.data().courses.third.perSemGPA) +
-                parseInt(res.data().courses.fourth.perSemGPA) +
-                parseInt(res.data().courses.fifth.perSemGPA) +
-                parseInt(res.data().courses.sixth.perSemGPA) +
-                parseInt(res.data().courses.seventh.perSemGPA) +
-                parseInt(res.data().courses.eight.perSemGPA)
-                ) * 100 ) / 40
+                        parseFloat(res.data().courses.first.perSemGPA) +
+                        parseFloat(res.data().courses.second.perSemGPA) +
+                        parseFloat(res.data().courses.third.perSemGPA) +
+                        parseFloat(res.data().courses.fourth.perSemGPA) +
+                        parseFloat(res.data().courses.fifth.perSemGPA) +
+                        parseFloat(res.data().courses.sixth.perSemGPA) +
+                        parseFloat(res.data().courses.seventh.perSemGPA) +
+                        parseFloat(res.data().courses.eight.perSemGPA)
+                    ) / 32) * 100
             )
         })
-    },[])
+    }, [])
 
     return (
         <>
@@ -172,7 +173,7 @@ export default function StudentDashboard() {
                             <Card className='graph' >
                                 <Card.Body>
                                     <Card.Title className='mb-3'>All Semester GPA</Card.Title>
-                                        <div className='graphHeight'><Chart options={options} series={series} type="bar" /></div>
+                                    <div className='graphHeight'><Chart options={options} series={series} type="bar" /></div>
                                 </Card.Body>
                             </Card>
                         </div>

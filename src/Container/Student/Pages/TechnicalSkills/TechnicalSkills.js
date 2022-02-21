@@ -8,7 +8,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 const TechnicalSkills = props => {
     const Student = localStorage.getItem("studentId");
 
-    const columns = ['Skill Name', 'From', 'Year Of Complete', 'Points'];
+    const columns = ['Skill Name', 'From', 'Year Of Complete'];
     const [loader, setLoader] = useState(false)
     const [technicalSkillData, setTechnicalSkillData] = useState([])
     const [student, setStudent] = useState([])

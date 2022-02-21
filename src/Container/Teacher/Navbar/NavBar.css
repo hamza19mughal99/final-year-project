@@ -1,98 +1,109 @@
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 74px;
+  background-color: #323a4d !important;
+  padding-top: 26px;
+  transition: all 0.2s ease;
+  box-shadow: -11px 6px 38px -4px #323a4d !important;
+  z-index: 99;
+}
+@media (max-width: 768px) {
+  .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 74px;
-    background-color: black;
+    width: 35px;
+    background-color: #323a4d !important;
     padding-top: 26px;
     transition: all 0.2s ease;
-    box-shadow: -11px 6px 38px -4px black;
+    box-shadow: -11px 6px 38px -4px #323a4d !important;
     z-index: 99;
+  }
 }
-
 
 .active {
-    width: 240px;
+  width: 240px;
 }
 
-
-.profile img{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-top: 1px  !important;
+.profile img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-top: 1px !important;
 }
 
- .sidebar ul {
-    margin-top: 20px;
-    list-style: none;
+.sidebar ul {
+  margin-top: 20px;
+  list-style: none;
 }
 
 .nav_list li {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav_list li:hover {
-    border-left: solid 5px red;
-    background-color: white;
+  border-left: solid 5px red;
+  background-color: white;
 }
 
 .nav_list li a {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 20px 20px;
-    transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 20px 20px;
+  transition: all 0.2s ease;
 }
 
 .nav_list li a:hover {
-    color: #11101d;
+  color: #11101d;
 }
 
 .nav_list li a span {
-    margin-left: 12px;
-    opacity: 0;
+  margin-left: 12px;
+  opacity: 0;
 }
 
 .nav_list li a svg {
-    transform: translateX(6px);
-    min-width: 20px;
+  transform: translateX(6px);
+  min-width: 20px;
 }
 
 .active .nav_list li a span {
-    opacity: 1;
+  opacity: 1;
 }
 
 .logo_content .fa-bars {
-    color: white;
-    position: absolute;
-    left: 50%;
-    font-size: 20px;
-    text-align: center;
-    top: 42px;
-    cursor: pointer;
-    transform: translateX(-50%);
+  color: white;
+  position: absolute;
+  left: 50%;
+  font-size: 20px;
+  text-align: center;
+  top: 42px;
+  cursor: pointer;
+  transform: translateX(-50%);
 }
 
 .active .logo_content .fa-bars {
-    left: 90%;
+  left: 90%;
 }
 
 .nav_active {
-    border-left: solid 5px red;
-    background-color: black;
+  border-left: solid 5px red;
+  background-color: black;
 }
 
 .is_subNav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-
-svg.subNav{
-    display: none;
+svg.subNav {
+  display: none;
 }

@@ -10,6 +10,8 @@ import { getStudents } from "../../../../services/student";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import HomeIcon from "@mui/icons-material/Home";
 import firebase from "../../../../config/firebase";
+import Card from 'react-bootstrap/Card'
+
 
 const Students = (props) => {
     const [searchData, setSearchData] = useState({})
@@ -53,10 +55,111 @@ const Students = (props) => {
     }, [])
 
     const handleClose = () => setShow(false);
-    const downloadCV = () => {
-        console.log("downloaded")
+
+    const [report, setReport] = useState({})
+
+    const [show2, setShow2] = useState(false)
+
+
+    const reportHandler = (stu) => {
+        setShow2(true)
+        setReport(stu)
+        console.log(stu)
     }
 
+    const reportHandlerModal = (
+        <Modal show={show2} size={'xl'} >
+            <Modal.Header className={'modal_header'}>
+                <AiFillCloseCircle onClick={() => setShow2(false)} />
+            </Modal.Header>
+            <div className="container-fluid mt-1 mt-2">
+                <div className="row">
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>Name:</Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)", textTransform: 'capitalize' }}>
+                                        {report.name}
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>Roll No:</Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
+                                        {report.rollNo}
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>Rewards Points:</Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
+                                        {report.rewardPoints}
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>SoftSkills: </Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
+                                        <ul>
+                                            {
+                                                report.softSkill ?
+                                                    report.softSkill.map((value) => {
+                                                        return (
+                                                            <>
+                                                                <li style={{ color: "#3895D3" }}>{value.courseName}</li>
+                                                            </>
+                                                        )
+                                                    })
+                                                    : null
+                                            }
+                                        </ul>
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>TechnicalSkills: </Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
+                                        <ul>
+                                            {
+                                                report.technicalSkill ?
+                                                    report.technicalSkill.map((value) => {
+                                                        return (
+                                                            <>
+                                                                <li style={{ color: "#3895D3" }}>{value.courseName}</li>
+                                                            </>
+                                                        )
+                                                    })
+                                                    : null
+                                            }
+                                        </ul>
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            </div>
+        </Modal>
+    )
     const MapModalHandler = (location) => {
         setStudentLocation({
             lat: location.lat,
@@ -97,7 +200,7 @@ const Students = (props) => {
                                 name={'Your position'} />
                         </Map>
                     </div>
-                    : <h5> The Location of Student is out from University</h5>
+                    : <h5 style={{ color: "#323a4d" }} className='text-center mt-3 mb-3'> The Location of Student is out from University</h5>
             }
 
         </Modal>
@@ -134,9 +237,12 @@ const Students = (props) => {
                                         <TableCell> {allSearch.batch} </TableCell>
                                         <TableCell> {allSearch.CGPA} </TableCell>
                                         <TableCell> {allSearch.rewardPoints} </TableCell>
-                                        <TableCell> <MdLocationOn
-                                            style={{ cursor: "pointer", fontSize: "20px" }}
-                                            onClick={() => MapModalHandler(allSearch.location)} />
+                                        <TableCell>
+                                            <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
+                                                onClick={() => reportHandler(allSearch)}
+                                            >
+                                                View Profile
+                                            </button>
                                         </TableCell>
                                     </TableRow>
                                     :
@@ -154,11 +260,10 @@ const Students = (props) => {
                                                 </TableCell>
                                                 <TableCell>
                                                     <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
-                                                        onClick={() => { downloadCV() }}
-                                                        style={{ backgroundColor: "#3b4968", color: "white", maxWidth: "150px", maxHeight: "40px" }}>
-                                                        Download CV
+                                                        onClick={() => reportHandler(student)}
+                                                    >
+                                                        View Profile
                                                     </button>
-
                                                 </TableCell>
                                             </TableRow>
                                         )
@@ -175,6 +280,7 @@ const Students = (props) => {
     return (
         <div className='page_responsive'>
             {mapModal}
+            {reportHandlerModal}
             <div>
                 <Breadcrumb>
                     <HomeIcon color="primary" />

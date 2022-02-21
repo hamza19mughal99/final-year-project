@@ -47,7 +47,6 @@ const Transcript = () => {
 			<Spinner animation={'border'} />
 		</div>
 	)
-	console.log()
 
 	if(student){
 		transcriptData = (
@@ -335,7 +334,7 @@ const Transcript = () => {
 				</div>
 
 				<div className={'d-flex justify-content-end mt-3 mr-5'}>
-					<p>Cumulative GPA: <strong>{(parseInt(firstGpa) + parseInt(secondGpa) + parseInt(thirdGpa) + parseInt(fourthGpa) + parseInt(fifthGpa) + parseInt(sixthGpa) + parseInt(seventhGpa) + parseInt(eightGpa))/8}</strong></p>
+					<p>Cumulative GPA: <strong>{(parseFloat(firstGpa) + parseFloat(secondGpa) + parseFloat(thirdGpa) + parseFloat(fourthGpa) + parseFloat(fifthGpa) + parseFloat(sixthGpa) + parseFloat(seventhGpa) + parseFloat(eightGpa))/8}</strong></p>
 				</div>
 				</div>
 			</>
