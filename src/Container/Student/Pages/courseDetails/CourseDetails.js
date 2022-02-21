@@ -367,28 +367,28 @@ const CourseDetails = () => {
 					<Tab>8th semester</Tab>
 				</TabList>
 				<TabPanel hover >
-					<div className="text-center">{coursesTable1}</div>
+					<div className="text-center table-responsive">{coursesTable1}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable2}</div>
+					<div className="text-center table-responsive">{coursesTable2}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable3}</div>
+					<div className="text-center table-responsive">{coursesTable3}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable4}</div>
+					<div className="text-center table-responsive">{coursesTable4}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable5}</div>
+					<div className="text-center table-responsive">{coursesTable5}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable6}</div>
+					<div className="text-center table-responsive">{coursesTable6}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable7}</div>
+					<div className="text-center table-responsive">{coursesTable7}</div>
 				</TabPanel>
 				<TabPanel>
-					<div className="text-center">{coursesTable8}</div>
+					<div className="text-center table-responsive">{coursesTable8}</div>
 				</TabPanel>
 			</Tabs>
 		</div>

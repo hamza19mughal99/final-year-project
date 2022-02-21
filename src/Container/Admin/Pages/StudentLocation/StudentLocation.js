@@ -173,15 +173,15 @@ const Students = (props) => {
                 </Breadcrumb>
             </div>
                 <form onSubmit={LocationHandler}>
-                    <div className={'d-flex'}>
+                    <div className={'search_div'}>
                     <input
                         type="text"
-                        className="form-control w-75"
+                        className="form-control"
                         name='rollNo'
                         onChange={studentLocationHandler}
                         placeholder={'Search By Roll No.'}
                     />
-                    <button type="submit" className={' w-25 btn btn-send'}>
+                    <button type="submit" className={'btn btn-send'}>
                         Search
                     </button>
                     </div>
@@ -191,7 +191,7 @@ const Students = (props) => {
                     <Tab>All Students</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="text-center">
+                    <div className="text-center table-responsive">
                         {
                             getStudentTable(allStudents)
                         }

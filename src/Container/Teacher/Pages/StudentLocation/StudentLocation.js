@@ -45,10 +45,7 @@ const Students = (props) => {
 
     const [show, setShow] = useState(false);
 
-    const [studentLocation, setStudentLocation] = useState({
-        lat: '24.915806',
-        lng: '67.093152'
-    })
+    const [studentLocation, setStudentLocation] = useState('')
     const [locationBol, setLocationBol] = useState(false)
 
     useEffect(() => {
@@ -114,7 +111,6 @@ console.log(studentLocation)
 
         if(students && students.length > 0){
             studentData = (
-                <>
                     <Table>
                         <TableHead>
                             <TableRow hover>
@@ -160,7 +156,6 @@ console.log(studentLocation)
                             </Fragment>
                         </TableBody>
                     </Table>
-                </>
             )
         }
         return studentData;
@@ -177,15 +172,15 @@ console.log(studentLocation)
                 </Breadcrumb>
             </div>
             <form onSubmit={LocationHandler}>
-                <div className={'d-flex'}>
+                <div className={'search_div'}>
                     <input
                         type="text"
-                        className="form-control w-75"
+                        className="form-control"
                         name='rollNo'
                         onChange={studentLocationHandler}
                         placeholder={'Search By Roll No.'}
                     />
-                    <button type="submit" className={' w-25 btn btn-send'}>
+                    <button type="submit" className={'btn btn-send'}>
                         Search
                     </button>
                 </div>
@@ -195,7 +190,7 @@ console.log(studentLocation)
                     <Tab>All Students</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="text-center">
+                    <div className="text-center table-responsive">
                         {
                             getStudentTable(allStudents)
                         }

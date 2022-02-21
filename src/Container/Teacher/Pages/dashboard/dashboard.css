@@ -11,3 +11,12 @@
 .react-calendar  {
   width: 100% !important;
 }
+
+.dashboard_header{
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+}
+/* .dashboard_header h4{
+ padding: 10px; 
+} */

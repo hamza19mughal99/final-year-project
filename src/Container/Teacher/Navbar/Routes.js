@@ -5,7 +5,7 @@ import Dashboard from "../Pages/dashboard/dashboard";
 import ManageCourses from "../Pages/ManageCourses/ManageCourses";
 import Events from "../Pages/Events/Events";
 import StudentLocation from "../Pages/StudentLocation/StudentLocation";
-import Setting from "../Pages/Setting/Setting";
+// import Setting from "../Pages/Setting/Setting";
 import CreatePolling from "../Pages/CreatePolling/CreatePolling";
 
 export const teacherRoutes = [
@@ -30,10 +30,10 @@ export const teacherRoutes = [
         component: <CreatePolling />,
     },
 
-    {
-        path: '/teacher/setting',
-        component: <Setting />,
-    }
+    // {
+    //     path: '/teacher/setting',
+    //     component: <Setting />,
+    // }
 
 ]
 
@@ -68,14 +68,12 @@ export const teacherSideBarItems = [
         title: 'Create polling',
         isSubNav: false,
     },
-    {
-        path: '/teacher/setting',
-        icon: <MdIcons.MdCarRental />,
-        title: 'Setting',
-        isSubNav: false,
-    }
-
-
+    // {
+    //     path: '/teacher/setting',
+    //     icon: <MdIcons.MdCarRental />,
+    //     title: 'Setting',
+    //     isSubNav: false,
+    // }
 ]
 
 

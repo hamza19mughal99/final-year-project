@@ -22,14 +22,14 @@ const Home = () => {
         headerBtn = (
             <div className="d-flex">
                 <div className="mr-1">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2">
                         <li class="nav-item">
                             <Link className="nav-link" to="/login"> Student Login </Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2">
                         <li class="nav-item">
                             <Link className="nav-link" to="/teacher/login"> Teacher Login </Link>
                         </li>
@@ -43,7 +43,7 @@ const Home = () => {
     if (getToken && !getTeacherToken && !getAdminToken) {
         headerBtn = (
             <div className="mr-1">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2">
                     <li class="nav-item">
                         <Link className="nav-link" to="/student/dashboard"> Go to dashboard </Link>
                     </li>
@@ -55,7 +55,7 @@ const Home = () => {
     if (!getToken && getTeacherToken && !getAdminToken) {
         headerBtn = (
             <div className="mr-1">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2">
                     <li class="nav-item">
                         <Link className="nav-link" to="/teacher/dashboard"> Go to Teacher dashboard </Link>
                     </li>
@@ -67,7 +67,7 @@ const Home = () => {
     if (!getToken && !getTeacherToken && getAdminToken) {
         headerBtn = (
             <div className="mr-1">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2">
                     <li class="nav-item">
                         <Link className="nav-link" to="/admin/dashboard"> Go to Admin dashboard </Link>
                     </li>
@@ -98,7 +98,7 @@ const Home = () => {
                     </div>
                 </nav>
             </div>
-            <div style={{backgroundColor: '#fff'}}>
+            {/* <div style={{backgroundColor: '#fff'}}>
                 <Navbar bg="light" variant="light">
                     <Container>
                         <Nav>
@@ -107,7 +107,7 @@ const Home = () => {
                         </Nav>
                     </Container>
                 </Navbar>
-            </div>
+            </div> */}
 
             <div className='container main_section'>
                 <div className='row align-items-center'>
@@ -125,7 +125,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='thirdSection' >
+            {/* <div className='thirdSection' >
                 <Grid className='thirdsection-paper' container justifyContent="center">
                     <Paper elevation={20}
                         component="form"
@@ -138,6 +138,16 @@ const Home = () => {
 
                     </Paper>
                 </Grid>
+            </div> */}
+
+            <div className='thirdSection'>
+                <div className='vision_div'>
+                    <div className='vision_div_main'>
+                    <h3>Vision</h3>
+                    <hr />
+                    <p>To make SSUET a leading innovation provider in education and research with a focus on realizing positive economic impact, entrepreneurial mindset and a sense of social responsibility as envisioned by Sir Syed Ahmed Khan.</p>
+                    </div>
+                </div>
             </div>
 
             <div className='footer1'>

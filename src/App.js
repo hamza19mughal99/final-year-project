@@ -90,7 +90,7 @@ function App() {
               element={<Navigate to="/" />}
           />}
           <Route path={'/'} element={<Home />} />
-          <Route path={'/search-student'} element={<SearchStudent />} />
+          {/* <Route path={'/search-student'} element={<SearchStudent />} /> */}
           <Route path={'/about'} element={<About />} />
           <Route path={'/login'} element={<Login />} />
           <Route path={'/teacher/login'} element={<TeacherLogin />} />

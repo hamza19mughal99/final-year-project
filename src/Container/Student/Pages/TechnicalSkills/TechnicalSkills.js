@@ -1,10 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import { Col, Modal, Row, Spinner } from "react-bootstrap";
+import { Modal, Spinner } from "react-bootstrap";
 import { updateTechnicalSkills } from "../../../../services/technicalSkills"
 import { getStudent } from "../../../../services/student"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-import firebase from "../../../../config/firebase";
 
 const TechnicalSkills = props => {
     const Student = localStorage.getItem("studentId");
@@ -67,18 +66,6 @@ const TechnicalSkills = props => {
         </Modal>
     )
 
-    const deleteHandler = (stuId, techId) => {
-        console.log(stuId, techId)
-
-        // firebase.firestore().collection('students').doc(stuId).update({
-        //         technicalSkill: technicalSkill.filter(technicalSkills => technicalSkills.id !== techId)
-        //     }).then(() => {
-        //     window.location.reload();
-        // }).catch(function(error) {
-        //             console.error("Error removing document: ", error);
-        //         });
-
-    }
 
     let studentTechnicalSkill = (
         <div className={'text-center'}>
@@ -91,7 +78,8 @@ const TechnicalSkills = props => {
 
     if(student.technicalSkill && student.technicalSkill.length > 0){
         studentTechnicalSkill = (
-            <Table>
+            <div className="table-responsive">
+                <Table>
                 <TableHead>
                     <TableRow hover>
                         {
@@ -105,13 +93,11 @@ const TechnicalSkills = props => {
                     <Fragment>
                         {
                             student.technicalSkill.map((technicalSkill, index) => {
-                                console.log(technicalSkill.id)
                                 return (
                                         <TableRow hover key={index}>
                                             <TableCell> {technicalSkill.courseName} </TableCell>
                                             <TableCell> {technicalSkill.certification} </TableCell>
                                             <TableCell> {technicalSkill.yearOfComplete} </TableCell>
-                                            <TableCell><button onClick={() => deleteHandler(Student, technicalSkill.id)} className={'btn btn-send'}> Delete </button></TableCell>
                                         </TableRow>
                                 )
                             })
@@ -119,6 +105,7 @@ const TechnicalSkills = props => {
                     </Fragment>
                 </TableBody>
             </Table>
+            </div>
         )
     }
 

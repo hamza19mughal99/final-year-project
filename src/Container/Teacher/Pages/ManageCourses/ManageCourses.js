@@ -71,7 +71,7 @@ const ManageCourses = () => {
                     <Tab>Courses</Tab>
                 </TabList>
                 <TabPanel>
-                    <div className="text-center">
+                    <div className="text-center table-responsive">
                         {
                             coursesData
                         }

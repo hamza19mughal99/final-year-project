@@ -124,7 +124,7 @@ const Login = () => {
 			<section className='login_section'>
 				<div className="container">
 					<div className="row justify-content-center align-items-center 100vh">
-						<div className="col-8">
+						<div className="col-md-8">
 							<div className="card rounded">
 								<div className="card-body text-center">
 									<h2 style={{
@@ -147,7 +147,7 @@ const Login = () => {
 											</div>
 											{errorElement(errorData.email)}
 
-											<div className="col-md-12">
+											<div className="col-md-12 mt-3">
 												<label>Password</label>
 												<input type="password"
 													name="password"

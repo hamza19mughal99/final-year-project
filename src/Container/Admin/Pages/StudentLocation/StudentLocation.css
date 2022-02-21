@@ -6,3 +6,21 @@
     cursor: pointer;
     font-size: 20px;
 }
+
+.search_div{
+    display: flex;
+}
+
+.search_div button{
+    width: 25%;
+}
+
+@media (max-width: 767px) {
+    .search_div{
+        display: block;
+    }
+    .search_div button{
+        margin: 10px 0;
+        width: 100%;
+    }
+}

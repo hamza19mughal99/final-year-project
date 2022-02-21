@@ -88,9 +88,8 @@ export default function StudentDashboard() {
                 parseInt(res.data().courses.fifth.perSemGPA) +
                 parseInt(res.data().courses.sixth.perSemGPA) +
                 parseInt(res.data().courses.seventh.perSemGPA) +
-                parseInt(res.data().courses.eight.perSemGPA) +
-                parseInt(res.data().courses.seventh.perSemGPA)
-                ) * 10 ) / 4
+                parseInt(res.data().courses.eight.perSemGPA)
+                ) * 100 ) / 40
             )
         })
     },[])

@@ -39,22 +39,6 @@ const CreatePolling = () => {
     }, [])
     const ResultModalHandler = (poll) => {
         setViewResult(poll)
-
-        poll.pollingData.participants.map(value => {
-            if (poll[value.label]) {
-                const filterByArea = (arr = [], keys = []) => {
-                    const res = [];
-                    for (let i = 0; i < arr.length; i++) {
-                        const { rollNo } = arr[i];
-                        if (keys.includes(rollNo)) {
-                            res.push(arr[i]);
-                        }
-                    }
-                    return res;
-                };
-                filterByArea(studentData, value.label)
-            }
-        })
         setShow2(true)
     }
 
@@ -99,8 +83,6 @@ const CreatePolling = () => {
     const handleCoursesInputChange = (value) => {
         setSelected(value)
     }
-
-
 
     useEffect(() => {
         getAllPollingData().then((res) => {
@@ -200,36 +182,38 @@ const CreatePolling = () => {
 
     if (allPollingData && allPollingData.length > 0) {
         showPollData = (
-            <Table>
-                <TableHead>
-                    <TableRow hover>
-                        {
-                            columns.map((col, index) => (
-                                <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
-                            ))
-                        }
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <Fragment>
-                        {allPollingData.map(poll =>  {
-                            console.log(poll)
-                            return(
-                                <TableRow>
-                                    <TableCell> {poll.pollingData.event} </TableCell>
-                                    <TableCell> {poll.pollingData.points} </TableCell>
-                                    <TableCell>
-                                        <button onClick={() => ResultModalHandler(poll)} className={'btn btn-send w-75'}> View Result </button>
-                                    </TableCell>
-                                    <TableCell>
-                                        <button onClick={() => deleteHandler(poll.id)} className={'btn btn-send w-75'}> Delete </button>
-                                    </TableCell>
-                                </TableRow>
-                            )
-                        })}
-                    </Fragment>
-                </TableBody>
-            </Table>
+            <div className='table-responsive'>
+                <Table>
+                    <TableHead>
+                        <TableRow hover>
+                            {
+                                columns.map((col, index) => (
+                                    <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
+                                ))
+                            }
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <Fragment>
+                            {allPollingData.map(poll => {
+                                console.log(poll)
+                                return (
+                                    <TableRow>
+                                        <TableCell> {poll.pollingData.event} </TableCell>
+                                        <TableCell> {poll.pollingData.points} </TableCell>
+                                        <TableCell>
+                                            <button onClick={() => ResultModalHandler(poll)} className={'btn btn-send'}> View Result </button>
+                                        </TableCell>
+                                        <TableCell>
+                                            <button onClick={() => deleteHandler(poll.id)} className={'btn btn-send'}> Delete </button>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })}
+                        </Fragment>
+                    </TableBody>
+                </Table>
+            </div>
         )
     }
 
