@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import {Spinner} from "react-bootstrap";
-import {getTeacher} from "../../../../services/teachers";
-import {NavLink} from "react-router-dom"
+import { Spinner } from "react-bootstrap";
+import { getTeacher } from "../../../../services/teachers";
+import { NavLink } from "react-router-dom"
 
 export default function TeacherDashboard(props) {
 
@@ -32,7 +32,7 @@ export default function TeacherDashboard(props) {
                 {/* <Header /> */}
 
                 <div className='dashboard_header'>
-                { loader ? <Spinner animation={'border'} /> : <h4 className='text-capitalize'>{teacher.name} (id: {teacher.id})</h4>}
+                    {loader ? <Spinner animation={'border'} /> : <h4 className='text-capitalize'>{teacher.name} (id: {teacher.id})</h4>}
                 </div>
                 <div >
                     <Breadcrumb>
@@ -77,32 +77,32 @@ export default function TeacherDashboard(props) {
 
                 <div className="container-fluid mt-5">
                     <div className="row">
-                        
-                            <div className="col-md-4 mb-3">
-                                <Card className="cardStyle" sx={{ minWidth: 240, height: 180 }}>
-                                    <CardContent>
-                                        <NavLink to='/teacher/events'>
-                                            <Typography variant="h5" component="div" className='mt-5 text-center'>
-                                                Events
-                                            </Typography>
-                                        </NavLink>
-                                    </CardContent>
-                                </Card>
-                            </div>
 
-                        
-                            <div className="col-md-4 mb-3">
-                                <Card className="cardStyle" sx={{ minWidth: 240, height: 180 }}>
-                                    <CardContent>
-                                        <NavLink to='/teacher/student-activity' >
-                                            <Typography variant="h5" component="div" className='mt-5 text-center'>
-                                                Student Activity
-                                            </Typography>
-                                        </NavLink>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        
+                        <div className="col-md-4 mb-3">
+                            <Card className="cardStyle" sx={{ minWidth: 240, height: 180 }}>
+                                <CardContent>
+                                    <NavLink to='/teacher/events'>
+                                        <Typography variant="h5" component="div" className='mt-5 text-center'>
+                                            Events
+                                        </Typography>
+                                    </NavLink>
+                                </CardContent>
+                            </Card>
+                        </div>
+
+
+                        <div className="col-md-4 mb-3">
+                            <Card className="cardStyle" sx={{ minWidth: 240, height: 180 }}>
+                                <CardContent>
+                                    <NavLink to='/teacher/student-location' >
+                                        <Typography variant="h5" component="div" className='mt-5 text-center'>
+                                            Student Activity
+                                        </Typography>
+                                    </NavLink>
+                                </CardContent>
+                            </Card>
+                        </div>
+
                         <div className="col-md-4 mb-3">
                             <Card className="cardStyle" sx={{ minWidth: 240, height: 180 }}>
                                 <CardContent>

@@ -39,7 +39,7 @@ const Students = (props) => {
             });
     }
 
-    const column = ["Roll No.", "Name", "Batch", "CGPA", "Reward Points", "Location"]
+    const column = ["Roll No.", "Name", "Batch", "CGPA", "Reward Points", "Location", "CV"]
 
     const [allStudents, setAllStudents] = useState(null)
 
@@ -53,6 +53,9 @@ const Students = (props) => {
     }, [])
 
     const handleClose = () => setShow(false);
+    const downloadCV = () => {
+        console.log("downloaded")
+    }
 
     const MapModalHandler = (location) => {
         setStudentLocation({
@@ -76,26 +79,26 @@ const Students = (props) => {
         setLocationBol(n)
         setShow(!show)
     }
-console.log(studentLocation)
+    console.log(studentLocation)
     const mapModal = (
         <Modal show={show} size={'xl'} >
             <Modal.Header className={'modal_header'}>
                 <AiFillCloseCircle onClick={handleClose} />
             </Modal.Header>
             {
-             locationBol ?
+                locationBol ?
                     <div className={'map_wrapper_setting'}>
                         <Map google={props.google}
-                             initialCenter={studentLocation}
-                             zoom={18}
+                            initialCenter={studentLocation}
+                            zoom={18}
                         >
                             <Marker
-                                position={ studentLocation }
+                                position={studentLocation}
                                 name={'Your position'} />
                         </Map>
                     </div>
-                     : <h5> The Location of Student is out from University</h5>
-             }
+                    : <h5> The Location of Student is out from University</h5>
+            }
 
         </Modal>
     )
@@ -105,57 +108,65 @@ console.log(studentLocation)
 
         let studentData = <Spinner animation="border" />
 
-        if(students && students.length === 0){
+        if (students && students.length === 0) {
             studentData = <h5>No Student Found</h5>
         }
 
-        if(students && students.length > 0){
+        if (students && students.length > 0) {
             studentData = (
-                    <Table>
-                        <TableHead>
-                            <TableRow hover>
-                                {
-                                    column.map((col, index) => (
-                                        <TableCell key={index}>{col}</TableCell>
-                                    ))
-                                }
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            <Fragment>
-                                {
-                                    allSearch ?
-                                        <TableRow>
-                                            <TableCell> {allSearch.rollNo} </TableCell>
-                                            <TableCell> {allSearch.name} </TableCell>
-                                            <TableCell> {allSearch.batch} </TableCell>
-                                            <TableCell> {allSearch.CGPA} </TableCell>
-                                            <TableCell> {allSearch.rewardPoints} </TableCell>
-                                            <TableCell> <MdLocationOn
-                                                style={{ cursor: "pointer", fontSize: "20px" }}
-                                                onClick={() => MapModalHandler(allSearch.location)} />
-                                            </TableCell>
-                                        </TableRow>
-                                        :
-                                        students.map(student => {
-                                                return (
-                                                    <TableRow>
-                                                        <TableCell> {student.rollNo} </TableCell>
-                                                        <TableCell> {student.name} </TableCell>
-                                                        <TableCell> {student.batch} </TableCell>
-                                                        <TableCell> {student.CGPA} </TableCell>
-                                                        <TableCell> {student.rewardPoints} </TableCell>
-                                                        <TableCell> <MdLocationOn
-                                                            style={{ cursor: "pointer", fontSize: "20px" }}
-                                                            onClick={() => MapModalHandler(student.location)} />
-                                                        </TableCell>
-                                                    </TableRow>
-                                                )
-                                            })
-                                }
-                            </Fragment>
-                        </TableBody>
-                    </Table>
+                <Table>
+                    <TableHead>
+                        <TableRow hover>
+                            {
+                                column.map((col, index) => (
+                                    <TableCell key={index}>{col}</TableCell>
+                                ))
+                            }
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <Fragment>
+                            {
+                                allSearch ?
+                                    <TableRow>
+                                        <TableCell> {allSearch.rollNo} </TableCell>
+                                        <TableCell> {allSearch.name} </TableCell>
+                                        <TableCell> {allSearch.batch} </TableCell>
+                                        <TableCell> {allSearch.CGPA} </TableCell>
+                                        <TableCell> {allSearch.rewardPoints} </TableCell>
+                                        <TableCell> <MdLocationOn
+                                            style={{ cursor: "pointer", fontSize: "20px" }}
+                                            onClick={() => MapModalHandler(allSearch.location)} />
+                                        </TableCell>
+                                    </TableRow>
+                                    :
+                                    students.map(student => {
+                                        return (
+                                            <TableRow>
+                                                <TableCell> {student.rollNo} </TableCell>
+                                                <TableCell> {student.name} </TableCell>
+                                                <TableCell> {student.batch} </TableCell>
+                                                <TableCell> {student.CGPA} </TableCell>
+                                                <TableCell> {student.rewardPoints} </TableCell>
+                                                <TableCell> <MdLocationOn
+                                                    style={{ cursor: "pointer", fontSize: "20px" }}
+                                                    onClick={() => MapModalHandler(student.location)} />
+                                                </TableCell>
+                                                <TableCell>
+                                                    <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
+                                                        onClick={() => { downloadCV() }}
+                                                        style={{ backgroundColor: "#3b4968", color: "white", maxWidth: "150px", maxHeight: "40px" }}>
+                                                        Download CV
+                                                    </button>
+
+                                                </TableCell>
+                                            </TableRow>
+                                        )
+                                    })
+                            }
+                        </Fragment>
+                    </TableBody>
+                </Table>
             )
         }
         return studentData;

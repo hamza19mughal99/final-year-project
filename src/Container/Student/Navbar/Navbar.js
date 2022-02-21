@@ -17,7 +17,7 @@ const NavBar = () => {
     const Student = localStorage.getItem("studentId");
 
     const onLogOutHandler = () => {
-        updateLocation(Student, {lat:'', lng: ''})
+        updateLocation(Student, { lat: '', lng: '' })
         localStorage.clear();
         navigate('/')
     }
@@ -28,29 +28,32 @@ const NavBar = () => {
         }
         return ''
     }
+    //    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    //                             <span class="navbar-toggler-icon"></span>
+    //                         </button> 
 
     return (
         <>
             <div className={sideBar ? 'sidebar active' : 'sidebar'}>
                 <div className={'logo_content'}>
                     <div className="profile img">
-                        <img className={'mb-0'} src={logo} alt='ssuet-logo ' style={{marginTop :"-3px"}}/>
+                        <img className={'mb-0'} src={logo} alt='ssuet-logo ' style={{ marginTop: "-3px" }} />
                     </div>
                     <FaIcons.FaBars className={'fa-bars'} onClick={showSideBar} />
                 </div>
                 <ul className="nav_list p-0">
                     {
                         studentSideBarItems.map((item, index) => {
-                                return (
-                                    <li key={index} className={`${classes(item.path)}`}>
-                                        <div>
-                                            <Link to={item.path}>
-                                                {item.icon}
-                                                <span>{item.title}</span>
-                                            </Link>
-                                        </div>
-                                    </li>
-                                )
+                            return (
+                                <li key={index} className={`${classes(item.path)}`}>
+                                    <div>
+                                        <Link to={item.path}>
+                                            {item.icon}
+                                            <span>{item.title}</span>
+                                        </Link>
+                                    </div>
+                                </li>
+                            )
                         })
                     }
                     <li className="logout_btn" onClick={onLogOutHandler}>

@@ -8,7 +8,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 const TechnicalSkills = props => {
     const Student = localStorage.getItem("studentId");
 
-    const columns = ['Course Name', 'From', 'Year Of Complete', 'Action'];
+    const columns = ['Skill Name', 'From', 'Year Of Complete', 'Points'];
     const [loader, setLoader] = useState(false)
     const [technicalSkillData, setTechnicalSkillData] = useState([])
     const [student, setStudent] = useState([])
@@ -72,39 +72,39 @@ const TechnicalSkills = props => {
             <Spinner animation={'border'} />
         </div>
     )
-    if(student.technicalSkill && student.technicalSkill.length === 0){
+    if (student.technicalSkill && student.technicalSkill.length === 0) {
         studentTechnicalSkill = <p className={'text-center'}>No Technical Skills</p>
     }
 
-    if(student.technicalSkill && student.technicalSkill.length > 0){
+    if (student.technicalSkill && student.technicalSkill.length > 0) {
         studentTechnicalSkill = (
             <div className="table-responsive">
                 <Table>
-                <TableHead>
-                    <TableRow hover>
-                        {
-                            columns.map((col, index) => (
-                                <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
-                            ))
-                        }
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    <Fragment>
-                        {
-                            student.technicalSkill.map((technicalSkill, index) => {
-                                return (
+                    <TableHead>
+                        <TableRow hover>
+                            {
+                                columns.map((col, index) => (
+                                    <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
+                                ))
+                            }
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <Fragment>
+                            {
+                                student.technicalSkill.map((technicalSkill, index) => {
+                                    return (
                                         <TableRow hover key={index}>
                                             <TableCell> {technicalSkill.courseName} </TableCell>
                                             <TableCell> {technicalSkill.certification} </TableCell>
                                             <TableCell> {technicalSkill.yearOfComplete} </TableCell>
                                         </TableRow>
-                                )
-                            })
-                        }
-                    </Fragment>
-                </TableBody>
-            </Table>
+                                    )
+                                })
+                            }
+                        </Fragment>
+                    </TableBody>
+                </Table>
             </div>
         )
     }
@@ -112,18 +112,18 @@ const TechnicalSkills = props => {
     return (
         <>
             <div className="page_responsive">
-               <div>
-               <Breadcrumb>
-						<Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-						<Breadcrumb.Item active className="d-flex justify-content-start">
-            Technical Skills
-						</Breadcrumb.Item>
-					</Breadcrumb>
-				</div>
-            
+                <div>
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                        <Breadcrumb.Item active className="d-flex justify-content-start">
+                            Technical Skills
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                </div>
+
                 {modal}
-                        <button className={'text-center btn btn-send btn-block'}
-                            onClick={ModalOpenHandler} style={{ backgroundColor: "#3b4968", color: "white" }}> Add </button>
+                <button className={'text-center btn btn-send btn-block'}
+                    onClick={ModalOpenHandler} style={{ backgroundColor: "#3b4968", color: "white" }}> Add </button>
                 <hr />
 
                 <div>

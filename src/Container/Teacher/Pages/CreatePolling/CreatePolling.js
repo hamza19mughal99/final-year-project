@@ -8,6 +8,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import "./CreatePolling.css";
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import firebase from "../../../../config/firebase";
+import { display } from '@mui/system';
 
 const CreatePolling = () => {
     const columns = [
@@ -30,6 +31,10 @@ const CreatePolling = () => {
     }
     const handleClose = () => setShow(false);
     const handleClose2 = () => setShow2(false);
+
+    const givePoints = () => {
+        console.log("give points")
+    }
 
     useEffect(() => {
         getStudents().then((res) => {
@@ -59,7 +64,13 @@ const CreatePolling = () => {
                                     {
                                         viewResult[value.label] ?
                                             <div className={'polling_result'}>
-                                                <h5> <span> {value.label} </span> has <span> {viewResult[value.label]} </span> votes up till Now. </h5>
+                                                <h5> <span> {value.label} </span> has <span> {viewResult[value.label]} </span> votes up till Now.  <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
+                                                    onClick={() => { givePoints() }}
+                                                    style={{ backgroundColor: "#3b4968", color: "white", maxWidth: "140px", maxHeight: "40px", display: 'inline' }}>
+                                                    Give Points
+                                                </button></h5>
+
+
                                             </div>
                                             : null
                                     }
@@ -202,10 +213,10 @@ const CreatePolling = () => {
                                         <TableCell> {poll.pollingData.event} </TableCell>
                                         <TableCell> {poll.pollingData.points} </TableCell>
                                         <TableCell>
-                                            <button onClick={() => ResultModalHandler(poll)} className={'btn btn-send'}> View Result </button>
+                                            <button onClick={() => ResultModalHandler(poll)} className={'btn btn-sm btn-send mr-0'} style={{ maxWidth: "140px", maxHeight: "40px" }}> View Result </button>
                                         </TableCell>
                                         <TableCell>
-                                            <button onClick={() => deleteHandler(poll.id)} className={'btn btn-send'}> Delete </button>
+                                            <button onClick={() => deleteHandler(poll.id)} className={'btn btn-sm btn-send '} style={{ maxWidth: "140px", maxHeight: "40px" }}> Delete </button>
                                         </TableCell>
                                     </TableRow>
                                 )

@@ -53,7 +53,7 @@ export const teacherSideBarItems = [
     {
         path: '/teacher/student-location',
         icon: <MdIcons.MdCarRental />,
-        title: 'Student Location',
+        title: 'View Students ',
         isSubNav: false,
     },
     {

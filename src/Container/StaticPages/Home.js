@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import { Grid } from '@mui/material';
 import HomeImg from "../../assets/home_img.jpg"
-import {Container, Navbar, Nav} from "react-bootstrap"
+import { Container, Navbar, Nav } from "react-bootstrap"
 
 const Home = () => {
     const navigate = useNavigate();
@@ -89,9 +89,6 @@ const Home = () => {
                                 className="d-inline-block align-top"
                                 alt="React Bootstrap logo"
                             /></Link>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
 
                         {headerBtn}
 
@@ -143,9 +140,9 @@ const Home = () => {
             <div className='thirdSection'>
                 <div className='vision_div'>
                     <div className='vision_div_main'>
-                    <h3>Vision</h3>
-                    <hr />
-                    <p>To make SSUET a leading innovation provider in education and research with a focus on realizing positive economic impact, entrepreneurial mindset and a sense of social responsibility as envisioned by Sir Syed Ahmed Khan.</p>
+                        <h3>Vision</h3>
+                        <hr />
+                        <p>To make SSUET a leading innovation provider in education and research with a focus on realizing positive economic impact, entrepreneurial mindset and a sense of social responsibility as envisioned by Sir Syed Ahmed Khan.</p>
                     </div>
                 </div>
             </div>

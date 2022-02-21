@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { addTeacher } from '../../../../services/teachers'
 import { getCourses } from "../../../../services/courses"
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { MultiSelect } from "react-multi-select-component";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import HomeIcon from "@mui/icons-material/Home";
 import firebase from "../../../../config/firebase";
-import {successNotify, errorNotify } from "../../../../lib/toast";
+import { successNotify, errorNotify } from "../../../../lib/toast";
 
 const AddTeachers = () => {
 
@@ -46,35 +46,32 @@ const AddTeachers = () => {
         e.preventDefault();
 
         setLoader(true)
-        addTeacher({
-
-        })
-
         firebase.auth().createUserWithEmailAndPassword(formInput.email, "123456")
-        .then((userCredential) => {
-            const user = userCredential.user;
-            firebase.firestore().collection("teachers").doc(user.uid).set({
-                name: formInput.name,
-                email: formInput.email,
-                id: formInput.id,
-                department: formInput.department,
-                yearJoin: formInput.yearJoin,
-                courses: selected
-            })
-                .then((docRef) => {
-                    successNotify('Teacher added successfully');
-                    setLoader(false)
-                    
+            .then((userCredential) => {
+                const user = userCredential.user;
+                firebase.firestore().collection("teachers").doc(user.uid).set({
+                    name: formInput.name,
+                    email: formInput.email,
+                    id: formInput.id,
+                    department: formInput.department,
+                    yearJoin: formInput.yearJoin,
+                    courses: selected
                 })
-                .catch((error) => {
-                    errorNotify(error)
-                    setLoader(false)
-                });
-        })
-        .catch((error) => {
-            errorNotify(error.message)
-            setLoader(false)
-        });
+                    .then((docRef) => {
+                        successNotify('Teacher added successfully');
+                        setLoader(false)
+                        window.location.reload();
+
+                    })
+                    .catch((error) => {
+                        errorNotify(error)
+                        setLoader(false)
+                    });
+            })
+            .catch((error) => {
+                errorNotify(error.message)
+                setLoader(false)
+            });
     }
 
     const changeHandler = (e) => {

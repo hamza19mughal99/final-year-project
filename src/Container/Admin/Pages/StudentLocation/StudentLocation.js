@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Modal, Spinner } from "react-bootstrap";
-import {GoogleApiWrapper, Map, Marker} from "google-maps-react";
+import { GoogleApiWrapper, Map, Marker } from "google-maps-react";
 import 'react-tabs/style/react-tabs.css';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { MdLocationOn } from 'react-icons/md';
@@ -40,7 +40,7 @@ const Students = (props) => {
             });
     }
 
-    const column = ["Roll No.", "Name", "Batch", "CGPA", "Reward Points", "Location"]
+    const column = ["Roll No.", "Name", "Batch", "CGPA", "Reward Points", "Location", "CV"]
 
     const [allStudents, setAllStudents] = useState(null)
 
@@ -54,6 +54,9 @@ const Students = (props) => {
     }, [])
 
     const handleClose = () => setShow(false);
+    const downloadCV = () => {
+        console.log("downloaded")
+    }
 
     const MapModalHandler = (location) => {
         console.log(location)
@@ -104,11 +107,11 @@ const Students = (props) => {
 
         let studentData = <Spinner animation="border" />
 
-        if(students && students.length === 0){
+        if (students && students.length === 0) {
             studentData = <h5>No Student Found</h5>
         }
 
-        if(students && students.length > 0){
+        if (students && students.length > 0) {
             studentData = (
                 <>
                     <Table>
@@ -149,6 +152,14 @@ const Students = (props) => {
                                                         style={{ cursor: "pointer", fontSize: "20px" }}
                                                         onClick={() => MapModalHandler(student.location)} />
                                                     </TableCell>
+                                                    <TableCell>
+                                                        <button className={'text-center btn-sm btn btn-send btn-block mb-1'}
+                                                            onClick={() => { downloadCV() }}
+                                                            style={{ backgroundColor: "#3b4968", color: "white", maxWidth: "150px", maxHeight: "40px" }}>
+                                                            Download CV
+                                                        </button>
+
+                                                    </TableCell>
                                                 </TableRow>
                                             )
                                         })
@@ -172,8 +183,8 @@ const Students = (props) => {
                     <Breadcrumb.Item active className='d-flex justify-content-start'>ViewStudent</Breadcrumb.Item>
                 </Breadcrumb>
             </div>
-                <form onSubmit={LocationHandler}>
-                    <div className={'search_div'}>
+            <form onSubmit={LocationHandler}>
+                <div className={'search_div'}>
                     <input
                         type="text"
                         className="form-control"
@@ -184,8 +195,8 @@ const Students = (props) => {
                     <button type="submit" className={'btn btn-send'}>
                         Search
                     </button>
-                    </div>
-                </form>
+                </div>
+            </form>
             <Tabs>
                 <TabList>
                     <Tab>All Students</Tab>

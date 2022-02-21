@@ -1,5 +1,5 @@
 import firebase from "../config/firebase";
-import {successNotify, errorNotify } from "../lib/toast";
+import { successNotify, errorNotify } from "../lib/toast";
 
 export async function getTeachers() {
     const teachers = (await firebase.firestore().collection("teachers").get()).docs

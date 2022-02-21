@@ -8,7 +8,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb'
 const SoftSkills = () => {
     const Student = localStorage.getItem("studentId");
 
-    const columns = ['Course Name', 'StartDate', 'EndDate', 'From'];
+    const columns = ['Course Name', 'Date', 'From', 'Points'];
     const [loader, setLoader] = useState(false)
     const [softSkillData, setSoftSkillsData] = useState([])
     const [student, setStudent] = useState([])
@@ -49,9 +49,9 @@ const SoftSkills = () => {
                     <p style={{ cursor: "pointer", fontSize: "20px" }} onClick={handleClose} title="Close Staff">X</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Enter Course name" className="form-control mt-1" name="courseName" onChange={formHandler} />
-                    <input placeholder="Start Date" className="form-control mt-1" name="fromDate" onChange={formHandler} />
-                    <input placeholder="End Date" className="form-control mt-1" name="ToDate" onChange={formHandler} />
+                    <input placeholder="Enter Skill " className="form-control mt-1" name="courseName" onChange={formHandler} />
+                    <input placeholder=" Date" className="form-control mt-1" name="fromDate" onChange={formHandler} />
+                    {/* <input placeholder="End Date" className="form-control mt-1" name="ToDate" onChange={formHandler} /> */}
                     <input placeholder="From Where" className="form-control mt-1" name="From" onChange={formHandler} />
                     {
                         loader ?
@@ -71,61 +71,61 @@ const SoftSkills = () => {
             <Spinner animation={'border'} />
         </div>
     )
-    if(student.softSkill && student.softSkill.length === 0){
+    if (student.softSkill && student.softSkill.length === 0) {
         studentSoftSkill = <p className={'text-center'}>No Soft Skills</p>
     }
 
-    if(student.softSkill && student.softSkill.length > 0){
-       studentSoftSkill = (
-           <div className='table-responsive'>
-           <Table>
-               <TableHead>
-                   <TableRow hover>
-                       {
-                           columns.map((col, index) => (
-                               <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
-                           ))
-                       }
-                   </TableRow>
-               </TableHead>
-               <TableBody>
-                   <Fragment>
-                       {
-                           student.softSkill.map((softSkill, index) => {
-                               console.log(softSkill)
-                               return (
-                                   <TableRow hover key={index}>
-                                       <TableCell> {softSkill.courseName} </TableCell>
-                                       <TableCell> {softSkill.fromDate} </TableCell>
-                                       <TableCell> {softSkill.ToDate} </TableCell>
-                                       <TableCell> {softSkill.From}</TableCell>
-                                   </TableRow>
-                               )
-                           })
-                       }
-                   </Fragment>
-               </TableBody>
-           </Table>
-           </div>
-       )
+    if (student.softSkill && student.softSkill.length > 0) {
+        studentSoftSkill = (
+            <div className='table-responsive'>
+                <Table>
+                    <TableHead>
+                        <TableRow hover>
+                            {
+                                columns.map((col, index) => (
+                                    <TableCell key={index} style={{ fontWeight: "bolder" }}>{col}</TableCell>
+                                ))
+                            }
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <Fragment>
+                            {
+                                student.softSkill.map((softSkill, index) => {
+                                    console.log(softSkill)
+                                    return (
+                                        <TableRow hover key={index}>
+                                            <TableCell> {softSkill.courseName} </TableCell>
+                                            <TableCell> {softSkill.fromDate} </TableCell>
+                                            {/* <TableCell> {softSkill.ToDate} </TableCell> */}
+                                            <TableCell> {softSkill.From}</TableCell>
+                                        </TableRow>
+                                    )
+                                })
+                            }
+                        </Fragment>
+                    </TableBody>
+                </Table>
+            </div>
+        )
     }
 
     return (
-            <div className="page_responsive">
-                <div>
-            <Breadcrumb>
-						<Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-						<Breadcrumb.Item active className="d-flex justify-content-start"> Soft Skills </Breadcrumb.Item>
-            </Breadcrumb>
+        <div className="page_responsive">
+            <div>
+                <Breadcrumb>
+                    <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                    <Breadcrumb.Item active className="d-flex justify-content-start"> Soft Skills </Breadcrumb.Item>
+                </Breadcrumb>
             </div>
-                {modal}
-                        <button className={'btn btn-send btn-block'}
-                            onClick={ModalOpenHandler} style={{ backgroundColor: "#3b4968", color: "white" }}> Add </button>
-                <hr />
-                <div>
-                    {studentSoftSkill}
-                </div>
+            {modal}
+            <button className={'btn btn-send btn-block'}
+                onClick={ModalOpenHandler} style={{ backgroundColor: "#3b4968", color: "white" }}> Add </button>
+            <hr />
+            <div>
+                {studentSoftSkill}
             </div>
+        </div>
     );
 };
 export default SoftSkills;

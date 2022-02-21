@@ -13,12 +13,15 @@ const CvBuilder = () => {
     const [getBatchYear, setGetBatchYear] = useState(2018)
     const [department, setDepartment] = useState('Software Engineering')
     const [technicalSkill, setTechnicalSkills] = useState([])
+    const [softSkill, setSoftSkills] = useState([])
+
 
     useEffect(() => {
         getStudent().then((res) => {
             setGetStudentName(res.data().name)
             setGetBatchYear(res.data().batch)
             setDepartment(res.data().department)
+            setSoftSkills(res.data().softSkill)
             setTechnicalSkills(res.data().technicalSkill)
 
         })
@@ -49,7 +52,7 @@ const CvBuilder = () => {
     const options = {
         orientation: 'portrait',
         unit: 'in',
-        format: [30, 12]
+        format: [10, 10]
     };
 
     return (
@@ -112,7 +115,7 @@ const CvBuilder = () => {
                             <div className='row'>
                                 <div className='col-md-3 cv_left'>
                                     <div>
-                                        <h5>PROFILE</h5>
+                                        <h5>OBJECTIVE</h5>
                                         <p> {cvData.profile} </p>
 
                                         <h5>CONTACT</h5>
@@ -169,6 +172,21 @@ const CvBuilder = () => {
                                                             <>
                                                                 <li>
                                                                     {technical.courseName}
+                                                                </li>
+                                                            </>
+                                                        )
+                                                    })
+                                                    : null
+                                            }
+                                        </ul>
+                                        <ul>
+                                            {
+                                                softSkill ?
+                                                    softSkill.map((soft) => {
+                                                        return (
+                                                            <>
+                                                                <li>
+                                                                    {soft.courseName}
                                                                 </li>
                                                             </>
                                                         )
