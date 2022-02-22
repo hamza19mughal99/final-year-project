@@ -69,29 +69,29 @@ const CvBuilder = () => {
                 <form onSubmit={FormSubmitHandler}>
                     <h3> Personal Details </h3>
                     <div className="d-flex flex-wrap mb-5">
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='profile' placeholder="enter short description" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='objective' placeholder="enter objective" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='email' placeholder="enter professional email address" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='phone' placeholder="enter professional phone Number" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='address' placeholder="enter House Address" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='linkdin' placeholder="enter your linkedln link" />
-                        <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='github' placeholder="enter your github link" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='profile' placeholder="enter short description" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='objective' placeholder="enter objective" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='email' placeholder="enter professional email address" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='phone' placeholder="enter professional phone Number" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='address' placeholder="enter House Address" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='linkdin' placeholder="enter your linkedln link" />
+                        <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='github' placeholder="enter your github link" />
                     </div>
 
                     <h4> Educational Details </h4>
                     <div>
                         <h5> School Details </h5>
                         <div className="d-flex flex-wrap mb-5">
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='school_name' placeholder="enter your School Name" />
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='school_field' placeholder="enter your Field" />
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='school_passing' placeholder="year of passing" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='school_name' placeholder="enter your School Name" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='school_field' placeholder="enter your Field" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='school_passing' placeholder="year of passing" />
                         </div>
                         <h5> College Details </h5>
                         <div className="d-flex flex-wrap mb-5">
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='college_name' placeholder="enter your college Name" />
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='college_field' placeholder="enter your Field" />
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='college_joining' placeholder="year of joining" />
-                            <input className="form-control mb-2 w-100" onChange={onChangeHandler} name='college_passing' placeholder="year of passing" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='college_name' placeholder="enter your college Name" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='college_field' placeholder="enter your Field" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='college_joining' placeholder="year of joining" />
+                            <input className="form-control mb-2 w-100" required onChange={onChangeHandler} name='college_passing' placeholder="year of passing" />
                         </div>
 
                         <h5> University Details </h5>

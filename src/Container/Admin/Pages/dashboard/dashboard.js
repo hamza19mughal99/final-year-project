@@ -44,7 +44,7 @@ export default function TeacherDashboard(props) {
                 <div>
                     <Breadcrumb>
                         <HomeIcon color="primary" />
-                        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+                        <Breadcrumb.Item href="_blank">Home</Breadcrumb.Item>
                         <Breadcrumb.Item active className='d-flex justify-content-start'>Dashboard</Breadcrumb.Item>
                     </Breadcrumb>
                 </div>

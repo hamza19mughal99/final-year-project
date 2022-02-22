@@ -49,10 +49,9 @@ const SoftSkills = () => {
                     <p style={{ cursor: "pointer", fontSize: "20px" }} onClick={handleClose} title="Close Staff">X</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Enter Skill " className="form-control mt-1" name="courseName" onChange={formHandler} />
-                    <input placeholder=" Date" className="form-control mt-1" name="fromDate" onChange={formHandler} />
-                    {/* <input placeholder="End Date" className="form-control mt-1" name="ToDate" onChange={formHandler} /> */}
-                    <input placeholder="From Where" className="form-control mt-1" name="From" onChange={formHandler} />
+                    <input required placeholder="Enter Skill " className="form-control mt-1" name="courseName" onChange={formHandler} />
+                    <input required placeholder=" Date" className="form-control mt-1" name="fromDate" onChange={formHandler} />
+                    <input required placeholder="From Where" className="form-control mt-1" name="From" onChange={formHandler} />
                     {
                         loader ?
                             <div className={'text-center mt-3'}>

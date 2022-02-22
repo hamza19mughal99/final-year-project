@@ -129,6 +129,35 @@ const Students = (props) => {
                     <div className="col-lg-4 col-md-4 col-sm-6">
                         <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
                             <Card.Body>
+                                <Card.Title className='mb-3 mt-2'>CGPA: </Card.Title>
+                                <span className='d-flex'>
+                                    <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
+                                        
+                                            {
+                                                report.courses ?
+                                                    
+                                                    <h5 style={{ color: "#3895D3" }}>{parseFloat(
+                                                        (
+                                                            parseFloat(report.courses.first.perSemGPA) +
+                                                            parseFloat(report.courses.second.perSemGPA) +
+                                                            parseFloat(report.courses.third.perSemGPA) +
+                                                            parseFloat(report.courses.fourth.perSemGPA) +
+                                                            parseFloat(report.courses.fifth.perSemGPA) +
+                                                            parseFloat(report.courses.sixth.perSemGPA) +
+                                                            parseFloat(report.courses.seventh.perSemGPA) +
+                                                            parseFloat(report.courses.eight.perSemGPA)
+                                                        )/ 8).toFixed(2)}</h5>
+                                                           
+                                                    : null
+                                            }
+                                        
+                                    </h5></span>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col-lg-4 col-md-4 col-sm-6">
+                        <Card className="RewardCard" style={{ borderRadius: "10px", float: "inline-end" }}>
+                            <Card.Body>
                                 <Card.Title className='mb-3 mt-2'>SoftSkills: </Card.Title>
                                 <span className='d-flex'>
                                     <h5 style={{ color: "rgba(0, 143, 251, 0.85)" }}>
@@ -297,6 +326,7 @@ const Students = (props) => {
                         type="text"
                         className="form-control"
                         name='rollNo'
+                        required
                         onChange={studentLocationHandler}
                         placeholder={'Search By Roll No.'}
                     />

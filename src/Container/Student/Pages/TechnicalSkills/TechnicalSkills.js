@@ -50,9 +50,9 @@ const TechnicalSkills = props => {
                     <p style={{ cursor: "pointer", fontSize: "20px" }} onClick={handleClose} title="Close Staff">X</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Enter Course Name" className="form-control mb-2" name="courseName" onChange={formHandler} />
-                    <input placeholder="From where " className="form-control mb-2" name="certification" onChange={formHandler} />
-                    <input placeholder="Enter year of completion" className="form-control mb-2" name="yearOfComplete" onChange={formHandler} />
+                    <input required placeholder="Enter Course Name" className="form-control mb-2" name="courseName" onChange={formHandler} />
+                    <input required placeholder="From where " className="form-control mb-2" name="certification" onChange={formHandler} />
+                    <input required placeholder="Enter year of completion" className="form-control mb-2" name="yearOfComplete" onChange={formHandler} />
                     {
                         loader ?
                             <div className={'text-center mt-3'}>

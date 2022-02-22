@@ -113,6 +113,7 @@ const Teachers = () => {
                         type="text"
                         className="form-control"
                         name='id'
+                        required
                         onChange={teacherLocationHandler}
                         placeholder={'Search By ID'}
                     />
